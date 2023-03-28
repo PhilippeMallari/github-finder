@@ -1,10 +1,12 @@
 import React from 'react'
+import UserResults from '../components/users/UserResults'
 
 function Home() {
   return (
-    <h1 className="text-6xl">
-     Welcome to Home
-    </h1>
+    <>
+      {/* Search component will go here */}
+      <UserResults />
+    </>
   )
 }
 
