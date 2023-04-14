@@ -9,7 +9,7 @@ function UserSearch() {
     const [text, setText] = useState('')
 
     // From context get the functions and data
-    const {users, dispatch, clearUsers} = useContext(GithubContext)
+    const {users, dispatch} = useContext(GithubContext)
     const {setAlert} = useContext(AlertContext)
 
     const inputChangeHandler = (e) => setText(e.target.value)
@@ -26,11 +26,6 @@ function UserSearch() {
 
             setText('')
         }
-    }
-
-    const onClickHandler = (e) => {
-        e.preventDefault()
-        clearUsers()
     }
 
     return (
@@ -55,7 +50,7 @@ function UserSearch() {
             </div>
                 {users.length > 0 && (
                     <div>
-                        <button onClick={onClickHandler} className="btn btn-ghost btn-lg">
+                        <button onClick={() => dispatch({ type: 'CLEAR_USERS' })} className="btn btn-ghost btn-lg">
                         Clear
                         </button>
                     </div>
