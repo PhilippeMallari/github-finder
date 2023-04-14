@@ -97,10 +97,8 @@ export const GithubProvider = ({ children }) => {
 
     //This passes the functions to the components
     return <GithubContext.Provider value={{
-        users: state.users,
-        repos: state.repos,
-        user: state.user,
-        loading: state.loading,
+        ...state,
+        dispatch,
         getUser,
         searchUsers,
         clearUsers,
